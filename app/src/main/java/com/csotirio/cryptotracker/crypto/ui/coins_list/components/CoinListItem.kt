@@ -25,7 +25,7 @@ import androidx.compose.ui.unit.sp
 import com.csotirio.cryptotracker.crypto.ui.model.CoinUiModel
 import com.csotirio.cryptotracker.crypto.ui.model.previewCoinUiModel
 import com.csotirio.cryptotracker.ui.theme.CryptoTrackerTheme
-import com.csotirio.cryptotracker.util.Dimens.dimen16dp
+import com.csotirio.cryptotracker.core.ui.util.Dimens.dimen16dp
 
 val coinImageSize = 85.dp
 

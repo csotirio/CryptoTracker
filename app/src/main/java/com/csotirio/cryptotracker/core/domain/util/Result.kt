@@ -1,4 +1,4 @@
-package com.csotirio.cryptotracker.util
+package com.csotirio.cryptotracker.core.domain.util
 
 typealias DomainError = Error
 

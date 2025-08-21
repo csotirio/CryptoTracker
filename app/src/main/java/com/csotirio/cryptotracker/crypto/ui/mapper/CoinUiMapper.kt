@@ -3,7 +3,7 @@ package com.csotirio.cryptotracker.crypto.ui.mapper
 import com.csotirio.cryptotracker.common.mapper.toDisplayableNumberUiModel
 import com.csotirio.cryptotracker.crypto.domain.CoinDomainModel
 import com.csotirio.cryptotracker.crypto.ui.model.CoinUiModel
-import com.csotirio.cryptotracker.util.getDrawableIdForCoin
+import com.csotirio.cryptotracker.core.ui.util.getDrawableIdForCoin
 
 fun CoinDomainModel.toCoinUiModel() = CoinUiModel(
     id = id,

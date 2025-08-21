@@ -1,4 +1,4 @@
-package com.csotirio.cryptotracker.util
+package com.csotirio.cryptotracker.core.ui.util
 
 import com.csotirio.cryptotracker.R
 
