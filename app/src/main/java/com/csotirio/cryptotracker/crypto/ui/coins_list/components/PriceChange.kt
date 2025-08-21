@@ -23,7 +23,7 @@ import androidx.compose.ui.unit.sp
 import com.csotirio.cryptotracker.common.model.DisplayableNumberUiModel
 import com.csotirio.cryptotracker.ui.theme.CryptoTrackerTheme
 import com.csotirio.cryptotracker.ui.theme.greenBackground
-import com.csotirio.cryptotracker.util.Dimens.dimen4dp
+import com.csotirio.cryptotracker.core.ui.util.Dimens.dimen4dp
 
 @Composable
 fun PriceChange(
