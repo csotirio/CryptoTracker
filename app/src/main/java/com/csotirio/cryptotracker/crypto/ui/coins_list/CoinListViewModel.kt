@@ -7,9 +7,11 @@ import com.csotirio.cryptotracker.core.domain.util.onSuccess
 import com.csotirio.cryptotracker.crypto.ui.mapper.toCoinUiModel
 import com.csotirio.cryptotracker.crypto.ui.model.CoinListUiModel
 import com.csotirio.cryptotracker.usecase.GetCoinsUseCase
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted.Companion.WhileSubscribed
 import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -27,8 +29,11 @@ class CoinListViewModel(
             initialValue = CoinListUiModel()
         )
 
-    fun onUserAction(action: CoinListAction){
-        when(action){
+    private val _events = Channel<CoinListEvents>()
+    val events = _events.receiveAsFlow()
+
+    fun onUserAction(action: CoinListAction) {
+        when (action) {
             is CoinListAction.OnCoinClick -> TODO()
         }
     }
@@ -45,12 +50,13 @@ class CoinListViewModel(
                         )
                     }
                 }
-                .onError {
-                    _uiState.update {
-                        it.copy(
+                .onError { error ->
+                    _uiState.update { uiState ->
+                        uiState.copy(
                             isLoading = false
                         )
                     }
+                    _events.send(CoinListEvents.Error(error))
                 }
         }
     }
