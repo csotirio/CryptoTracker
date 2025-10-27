@@ -1,8 +1,8 @@
-package com.plcoding.cryptotracker.core.presentation.util
+package com.csotirio.cryptotracker.core.ui.util
 
 import android.content.Context
-import com.plcoding.cryptotracker.R
-import com.plcoding.cryptotracker.core.domain.util.NetworkError
+import com.csotirio.cryptotracker.R
+import com.csotirio.cryptotracker.core.domain.util.NetworkError
 
 fun NetworkError.toString(context: Context): String {
     val resId = when(this) {

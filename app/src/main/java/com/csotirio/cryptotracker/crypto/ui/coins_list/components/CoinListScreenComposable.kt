@@ -14,10 +14,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
+import com.csotirio.cryptotracker.core.ui.util.Dimens.dimen8dp
+import com.csotirio.cryptotracker.crypto.ui.coins_list.CoinListEvents
 import com.csotirio.cryptotracker.crypto.ui.model.CoinListUiModel
 import com.csotirio.cryptotracker.crypto.ui.model.previewCoinUiModel
 import com.csotirio.cryptotracker.ui.theme.CryptoTrackerTheme
-import com.csotirio.cryptotracker.core.ui.util.Dimens.dimen8dp
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.emptyFlow
 
 @Composable
 fun CoinListScreenComposable(
