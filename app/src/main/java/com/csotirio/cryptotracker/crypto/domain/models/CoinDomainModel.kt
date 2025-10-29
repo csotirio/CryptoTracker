@@ -1,4 +1,4 @@
-package com.csotirio.cryptotracker.crypto.domain
+package com.csotirio.cryptotracker.crypto.domain.models
 
 data class CoinDomainModel(
     val id: String? = null,
