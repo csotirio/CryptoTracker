@@ -17,6 +17,7 @@ import com.csotirio.cryptotracker.core.ui.util.toString
 import com.csotirio.cryptotracker.crypto.ui.coins_list.CoinListEvents
 import com.csotirio.cryptotracker.crypto.ui.coins_list.CoinListViewModel
 import com.csotirio.cryptotracker.crypto.ui.coins_list.components.CoinListScreenComposable
+import com.csotirio.cryptotracker.ui.coin_details.composable.CoinDetailScreen
 import com.csotirio.cryptotracker.ui.theme.CryptoTrackerTheme
 import org.koin.androidx.compose.koinViewModel
 
@@ -41,10 +42,21 @@ class MainActivity : ComponentActivity() {
                             }
                         }
                     }
-                    CoinListScreenComposable(
-                        uiModel = uiState,
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                    when{
+                        uiState.selectedCoin != null -> {
+                            CoinDetailScreen(
+                                state = uiState,
+                                modifier = Modifier.padding(innerPadding)
+                            )
+                        }
+                        else -> {
+                            CoinListScreenComposable(
+                                uiModel = uiState,
+                                onAction = viewModel::onUserAction,
+                                modifier = Modifier.padding(innerPadding)
+                            )
+                        }
+                    }
                 }
             }
         }
