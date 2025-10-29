@@ -4,6 +4,7 @@ import com.csotirio.cryptotracker.core.data.networking.HttpClientFactory
 import com.csotirio.cryptotracker.crypto.data.networking.CoinDatasourceImpl
 import com.csotirio.cryptotracker.crypto.domain.CoinDataSource
 import com.csotirio.cryptotracker.crypto.ui.coins_list.CoinListViewModel
+import com.csotirio.cryptotracker.usecase.GetCoinsPriceHistoryUseCase
 import com.csotirio.cryptotracker.usecase.GetCoinsUseCase
 import io.ktor.client.engine.cio.CIO
 import org.koin.androidx.viewmodel.dsl.viewModelOf
@@ -18,4 +19,5 @@ val appModule = module {
 
     viewModelOf(::CoinListViewModel)
     factoryOf(::GetCoinsUseCase)
+    factoryOf(::GetCoinsPriceHistoryUseCase)
 }

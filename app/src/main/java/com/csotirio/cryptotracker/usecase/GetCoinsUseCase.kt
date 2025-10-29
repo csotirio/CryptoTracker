@@ -3,7 +3,7 @@ package com.csotirio.cryptotracker.usecase
 import com.csotirio.cryptotracker.core.domain.util.NetworkError
 import com.csotirio.cryptotracker.core.domain.util.Result
 import com.csotirio.cryptotracker.crypto.domain.CoinDataSource
-import com.csotirio.cryptotracker.crypto.domain.CoinDomainModel
+import com.csotirio.cryptotracker.crypto.domain.models.CoinDomainModel
 
 class GetCoinsUseCase(
     private val dataSource: CoinDataSource

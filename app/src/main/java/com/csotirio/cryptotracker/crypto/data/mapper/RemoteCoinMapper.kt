@@ -1,7 +1,7 @@
 package com.csotirio.cryptotracker.crypto.data.mapper
 
 import com.csotirio.cryptotracker.crypto.data.model.RemoteCoin
-import com.csotirio.cryptotracker.crypto.domain.CoinDomainModel
+import com.csotirio.cryptotracker.crypto.domain.models.CoinDomainModel
 
 fun RemoteCoin.toDomainModel() = CoinDomainModel(
     id = id,
