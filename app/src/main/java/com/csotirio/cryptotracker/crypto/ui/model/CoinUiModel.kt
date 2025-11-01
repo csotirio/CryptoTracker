@@ -3,6 +3,7 @@ package com.csotirio.cryptotracker.crypto.ui.model
 import androidx.annotation.DrawableRes
 import com.csotirio.cryptotracker.R
 import com.csotirio.cryptotracker.common.model.DisplayableNumberUiModel
+import com.csotirio.cryptotracker.ui.coin_details.DataPoint
 
 data class CoinUiModel(
     val id: String? = null,
@@ -12,7 +13,8 @@ data class CoinUiModel(
     val marketCapUsd: DisplayableNumberUiModel? = null,
     val priceUsd: DisplayableNumberUiModel? = null,
     val changePercent24Hr: DisplayableNumberUiModel? = null,
-    @DrawableRes val iconRes: Int? = null
+    @DrawableRes val iconRes: Int? = null,
+    val coinPriceHistory: List<DataPoint> = emptyList()
 )
 
 internal val previewCoinUiModel = CoinUiModel(
