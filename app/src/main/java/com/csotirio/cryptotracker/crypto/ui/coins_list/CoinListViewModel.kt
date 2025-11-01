@@ -7,6 +7,7 @@ import com.csotirio.cryptotracker.core.domain.util.onSuccess
 import com.csotirio.cryptotracker.crypto.ui.mapper.toCoinUiModel
 import com.csotirio.cryptotracker.crypto.ui.model.CoinListUiModel
 import com.csotirio.cryptotracker.crypto.ui.model.CoinUiModel
+import com.csotirio.cryptotracker.ui.coin_details.DataPoint
 import com.csotirio.cryptotracker.usecase.GetCoinsPriceHistoryUseCase
 import com.csotirio.cryptotracker.usecase.GetCoinsUseCase
 import kotlinx.coroutines.channels.Channel
@@ -18,6 +19,7 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import java.time.ZonedDateTime
+import java.time.format.DateTimeFormatter
 
 class CoinListViewModel(
     private val getCoinsUseCase: GetCoinsUseCase,
@@ -58,7 +60,25 @@ class CoinListViewModel(
                     end = ZonedDateTime.now()
                 )
                     .onSuccess { history ->
+                        val dataPoints = history
+                            .sortedBy { it.dateTime }
+                            .map {
+                                DataPoint(
+                                    x = it.dateTime.hour.toFloat(),
+                                    y = it.priceUsd.toFloat(),
+                                    xLabel = DateTimeFormatter
+                                        .ofPattern("ha\nM/d")
+                                        .format(it.dateTime)
+                                )
+                            }
 
+                        _uiState.update {
+                            it.copy(
+                                selectedCoin = it.selectedCoin?.copy(
+                                    coinPriceHistory = dataPoints
+                                )
+                            )
+                        }
                     }
                     .onError { error ->
                         _events.send(CoinListEvents.Error(error))
