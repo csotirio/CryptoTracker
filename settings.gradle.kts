@@ -23,3 +23,4 @@ rootProject.name = "Crypto Tracker"
 include(":app")
 include(":domain")
 include(":data")
+include(":use_case")
