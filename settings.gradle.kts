@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Crypto Tracker"
 include(":app")
- 
+include(":domain")
